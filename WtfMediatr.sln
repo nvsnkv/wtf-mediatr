@@ -3,16 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WtfMediatr.StraightForwardImplementation", "WtfMediatr.StraightForwardImplementation\WtfMediatr.StraightForwardImplementation.csproj", "{5763640D-AB8E-402B-9B95-2F24BCB86801}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WtfMediatr.StraightForwardImplementation", "WtfMediatr.StraightForwardImplementation\WtfMediatr.StraightForwardImplementation.csproj", "{5763640D-AB8E-402B-9B95-2F24BCB86801}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WtfMediatr.Core", "WtfMediatr.Core\WtfMediatr.Core.csproj", "{DFDD22FD-5730-4615-A387-66257531930C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WtfMediatr.Core", "WtfMediatr.Core\WtfMediatr.Core.csproj", "{DFDD22FD-5730-4615-A387-66257531930C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Core", "0. Core", "{48B6E93F-EE10-4D1C-A149-F9E0EE860163}"
-	ProjectSection(SolutionItems) = preProject
-		core.md = core.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Staightforward Implementation", "1. Staightforward Implementation", "{5A71C42B-FDFB-420C-9773-4B1BCE4BC055}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Explicit Incomes Tracking", "2. Explicit Incomes Tracking", "{FBF590B9-ADE4-4CB2-A4E5-D8C63E733233}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WtfMediatr.ExplicitIncomesTracking", "WtfMediatr.ExplicitIncomesTracking\WtfMediatr.ExplicitIncomesTracking.csproj", "{31E512F7-2231-4972-873C-4DA326368FDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. What's Happended", "3. What's Happended", "{1E973105-CB15-44CE-8DC4-C170FF669139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WtfMediatr.Investigations", "WtfMediatr.Investigations\WtfMediatr.Investigations.csproj", "{7618EB36-40F7-4292-8AFB-1A3E00DE4066}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +33,14 @@ Global
 		{DFDD22FD-5730-4615-A387-66257531930C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFDD22FD-5730-4615-A387-66257531930C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFDD22FD-5730-4615-A387-66257531930C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31E512F7-2231-4972-873C-4DA326368FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E512F7-2231-4972-873C-4DA326368FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E512F7-2231-4972-873C-4DA326368FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E512F7-2231-4972-873C-4DA326368FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7618EB36-40F7-4292-8AFB-1A3E00DE4066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7618EB36-40F7-4292-8AFB-1A3E00DE4066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7618EB36-40F7-4292-8AFB-1A3E00DE4066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7618EB36-40F7-4292-8AFB-1A3E00DE4066}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,6 +48,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5763640D-AB8E-402B-9B95-2F24BCB86801} = {5A71C42B-FDFB-420C-9773-4B1BCE4BC055}
 		{DFDD22FD-5730-4615-A387-66257531930C} = {48B6E93F-EE10-4D1C-A149-F9E0EE860163}
+		{31E512F7-2231-4972-873C-4DA326368FDB} = {FBF590B9-ADE4-4CB2-A4E5-D8C63E733233}
+		{7618EB36-40F7-4292-8AFB-1A3E00DE4066} = {1E973105-CB15-44CE-8DC4-C170FF669139}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {712816E8-8C62-4A6D-9DAF-092A076AC16E}

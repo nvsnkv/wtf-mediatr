@@ -2,9 +2,12 @@
 using MediatR.Pipeline;
 using WtfMediatr.Core;
 
-namespace WtfMediatr.StraightForwardImplementation;
+namespace WtfMediatr.ExplicitIncomesTracking;
 
+#region copypaste
+/// <summary>
 /// Давайте реализуем обработчики вышеописанных команд
+/// </summary>
 internal sealed class StraightForwardProcessIncomeCommandHandler : IRequestHandler<ProcessIncomeCommand>, IRequestHandler<ProcessSpendingCommand>
 {
     private readonly Wallet wallet;
@@ -56,8 +59,8 @@ internal sealed class GetTransactionsQueryHandler : IRequestHandler<GetLoggedTra
         return Task.FromResult(log.GetLoggedTransactions());
     }
 }
-
-/// Наконец, давайте воспользуемся концепцией пост-обработчиков из MediatR для запоминания тразакций
+#endregion
+/// Оставим обработчик из прошлой программы для минимизации объема регрессионного тестирования
 internal sealed class ChangeBudgetCommandsPostProcessor : IRequestPostProcessor<IChangeBudgetCommand, Unit>
 {
     private TransactionLog log;
@@ -78,5 +81,15 @@ internal sealed class ChangeBudgetCommandsPostProcessor : IRequestPostProcessor<
 
         log.Log(transaction);
         return Task.FromResult(transaction);
+    }
+}
+
+/// И допишем еще один, который будет постравлять нас с пополнением кошелька!
+internal sealed class ProcessIncomeCommandPostProcessor : IRequestPostProcessor<ProcessIncomeCommand, Unit>
+{
+    public Task Process(ProcessIncomeCommand request, Unit response, CancellationToken cancellationToken)
+    {
+        Console.WriteLine($"Hurray! You've earned {request.Income.Amount} !");
+        return Task.CompletedTask;
     }
 }
