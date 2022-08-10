@@ -5,7 +5,8 @@ using WtfMediatr.Core;
 namespace WtfMediatr.StraightForwardImplementation;
 
 /// Давайте реализуем обработчики вышеописанных команд
-internal sealed class StraightForwardProcessIncomeCommandHandler : IRequestHandler<ProcessIncomeCommand>, IRequestHandler<ProcessSpendingCommand>
+internal sealed class StraightForwardProcessIncomeCommandHandler : IRequestHandler<ProcessIncomeCommand>, 
+                                                                   IRequestHandler<ProcessSpendingCommand>
 {
     private readonly Wallet wallet;
 

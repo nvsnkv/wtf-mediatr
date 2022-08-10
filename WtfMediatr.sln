@@ -13,11 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Staightforward Implement
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Explicit Incomes Tracking", "2. Explicit Incomes Tracking", "{FBF590B9-ADE4-4CB2-A4E5-D8C63E733233}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WtfMediatr.ExplicitIncomesTracking", "WtfMediatr.ExplicitIncomesTracking\WtfMediatr.ExplicitIncomesTracking.csproj", "{31E512F7-2231-4972-873C-4DA326368FDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WtfMediatr.ExplicitIncomesTracking", "WtfMediatr.ExplicitIncomesTracking\WtfMediatr.ExplicitIncomesTracking.csproj", "{31E512F7-2231-4972-873C-4DA326368FDB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. What's Happended", "3. What's Happended", "{1E973105-CB15-44CE-8DC4-C170FF669139}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WtfMediatr.Investigations", "WtfMediatr.Investigations\WtfMediatr.Investigations.csproj", "{7618EB36-40F7-4292-8AFB-1A3E00DE4066}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WtfMediatr.Investigations", "WtfMediatr.Investigations\WtfMediatr.Investigations.csproj", "{7618EB36-40F7-4292-8AFB-1A3E00DE4066}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. NediatR", "4. NediatR", "{79D01706-9D6A-41BE-89EE-F979996FE1B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WtfMediatr.NediatR", "WtfMediatr.NediatR\WtfMediatr.NediatR.csproj", "{7E280883-373D-4764-9E4B-DE85C0EDB0F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,10 @@ Global
 		{7618EB36-40F7-4292-8AFB-1A3E00DE4066}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7618EB36-40F7-4292-8AFB-1A3E00DE4066}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7618EB36-40F7-4292-8AFB-1A3E00DE4066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E280883-373D-4764-9E4B-DE85C0EDB0F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E280883-373D-4764-9E4B-DE85C0EDB0F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E280883-373D-4764-9E4B-DE85C0EDB0F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E280883-373D-4764-9E4B-DE85C0EDB0F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 		{DFDD22FD-5730-4615-A387-66257531930C} = {48B6E93F-EE10-4D1C-A149-F9E0EE860163}
 		{31E512F7-2231-4972-873C-4DA326368FDB} = {FBF590B9-ADE4-4CB2-A4E5-D8C63E733233}
 		{7618EB36-40F7-4292-8AFB-1A3E00DE4066} = {1E973105-CB15-44CE-8DC4-C170FF669139}
+		{7E280883-373D-4764-9E4B-DE85C0EDB0F4} = {79D01706-9D6A-41BE-89EE-F979996FE1B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {712816E8-8C62-4A6D-9DAF-092A076AC16E}

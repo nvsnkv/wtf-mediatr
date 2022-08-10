@@ -10,7 +10,10 @@ namespace WtfMediatr.Investigations;
 /// За счет чего во втором случае мы получили нужную регистрацию? Заглянем "под капот" метода AddMediatR()
 internal static class TheMediatorSources
 {
-    public static IServiceCollection AddMediatR(this IServiceCollection services, IEnumerable<Assembly> assemblies, Action<MediatRServiceConfiguration>? configuration)
+    public static IServiceCollection AddMediatR(
+        this IServiceCollection services, 
+        IEnumerable<Assembly> assemblies, 
+        Action<MediatRServiceConfiguration>? configuration)
     {
         #region валидация параметров и прочая скука смертная)
         if (!assemblies.Any())
@@ -22,7 +25,8 @@ internal static class TheMediatorSources
         configuration?.Invoke(serviceConfig);
         #endregion
 
-        /// ServiceRegistrar - класс из MediatR.Registration. Данный метод регистрирует базовые вещи вроде IMediator, IPipelineBehavior и нам неинтересен
+        /// ServiceRegistrar - класс из MediatR.Registration.
+        /// Данный метод регистрирует базовые вещи вроде IMediator, IPipelineBehavior и нам неинтересен
         ServiceRegistrar.AddRequiredServices(services, serviceConfig);
 
         /// А вот этот метод рассмотрим подробнее
@@ -104,7 +108,8 @@ internal static class TheMediatorSources
         /// а вот и место, в котором происходит "дополнительная" регистрация
         foreach (var @interface in interfaces)
         {
-            /// благодаря регистрации ProcessIncomeCommandPostProcessor у нас появился интерфейс IRequestPostProcessor<ProcessIncomeCommand>
+            /// благодаря регистрации ProcessIncomeCommandPostProcessor
+            /// у нас появился интерфейс IRequestPostProcessor<ProcessIncomeCommand>
             /// к которому, в свою очередь, можно преобразовать ChangeBudgetCommandsPostProcessor
             var exactMatches = concretions.Where(x => x.CanBeCastTo(@interface)).ToList();
             if (addIfAlreadyExists)                            //     /\
