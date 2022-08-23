@@ -1,13 +1,13 @@
-﻿using System.Diagnostics;
+﻿using System.Reflection;
 using MediatR;
-using MediatR.Pipeline;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WtfMediatr.Core;
-using WtfMediatr.NediatR;
 using WtfMediatr.StraightForwardImplementation;
+using WtfMediatr.TheCommonWayToSolveThis;
 
 /// Соберем хост и запустим его!
+
 var cts = new CancellationTokenSource(1000);
 await new HostBuilder()
     .ConfigureServices((_, services) =>
@@ -16,20 +16,10 @@ await new HostBuilder()
         services.AddSingleton(new TransactionLog());
 
         services.AddMediatR(typeof(ChangeBudgetCommandsPostProcessor).Assembly);
-        services.EmpowerMediatRHandlersFor(typeof(IRequestPostProcessor<,>));
+        services.AddTransient(
+            typeof(IPipelineBehavior<IChangeBudgetCommand, Unit>), // FAIL, MediatR will never ask IoC container for this interface
+            typeof(LoggingPipelineBehavior));
+
         services.AddHostedService<SampleHostedService>();
     })
     .RunConsoleAsync(cts.Token);
-#region spoiler
-/*
-Balance: 200
-Transactions:
-400
-600
--500
--300
-
-ну чтож, теперь это работает!
-
-*/
-#endregion

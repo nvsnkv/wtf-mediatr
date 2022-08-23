@@ -5,7 +5,7 @@ using WtfMediatr.Core;
 namespace WtfMediatr.StraightForwardImplementation;
 
 /// Давайте реализуем обработчики вышеописанных команд
-internal sealed class StraightForwardProcessIncomeCommandHandler : IRequestHandler<ProcessIncomeCommand>, 
+public sealed class StraightForwardProcessIncomeCommandHandler : IRequestHandler<ProcessIncomeCommand>, 
                                                                    IRequestHandler<ProcessSpendingCommand>
 {
     private readonly Wallet wallet;
@@ -27,7 +27,7 @@ internal sealed class StraightForwardProcessIncomeCommandHandler : IRequestHandl
 }
 
 /// Тривиально
-internal sealed class GetBalanceQueryHandler : IRequestHandler<GetBalanceQuery, decimal>
+public sealed class GetBalanceQueryHandler : IRequestHandler<GetBalanceQuery, decimal>
 {
     private readonly Wallet wallet;
 
@@ -43,7 +43,7 @@ internal sealed class GetBalanceQueryHandler : IRequestHandler<GetBalanceQuery, 
 }
 
 /// Тривиально
-internal sealed class GetTransactionsQueryHandler : IRequestHandler<GetLoggedTransactionsQuery, IReadOnlyList<ITransaction>>
+public sealed class GetTransactionsQueryHandler : IRequestHandler<GetLoggedTransactionsQuery, IReadOnlyList<ITransaction>>
 {
     private readonly TransactionLog log;
 
@@ -59,7 +59,7 @@ internal sealed class GetTransactionsQueryHandler : IRequestHandler<GetLoggedTra
 }
 
 /// Наконец, давайте воспользуемся концепцией пост-обработчиков из MediatR для запоминания тразакций
-internal sealed class ChangeBudgetCommandsPostProcessor : IRequestPostProcessor<IChangeBudgetCommand, Unit>
+public sealed class ChangeBudgetCommandsPostProcessor : IRequestPostProcessor<IChangeBudgetCommand, Unit>
 {
     private TransactionLog log;
 

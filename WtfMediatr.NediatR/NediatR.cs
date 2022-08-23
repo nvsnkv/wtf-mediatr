@@ -7,42 +7,47 @@ namespace WtfMediatr.NediatR;
 
 internal static class NediatR
 {
-    private static readonly Type RequestType = typeof(IRequest<>);
-
-    /// учитывая что IRequestHandler, Pre и PostProcessorы объявлены как контрвариантные обобщенные типы, давайте поможем MediatRу стать еще мощнее! 
-    /// ну и примите во внимание, что приведенный ниже код приведен исключительно для демонстрации идеи!
     public static IServiceCollection EmpowerMediatRHandlersFor(this IServiceCollection collection, Type openType)
     {
-        var knownRequestTypes = AppDomain.CurrentDomain.GetAssemblies()
-            .SelectMany(a => a.DefinedTypes)
-            .Where(t => t.GetTypeInfo()
-                .GetInterfaces()
-                .Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == RequestType)
-            )
-            .Where(t => !t.IsInterface)
+        var knownRequestTypes = GetDeclaredTypes();
+
+        var matchedDescriptors = collection
+            .Where(d => CheckInterfaceMatch(openType, d))
             .ToList();
-
-        foreach (var descriptor in collection.Where(d =>
-                     d.ServiceType.IsInterface
-                     && d.ServiceType.IsGenericType
-                     && d.ServiceType.GetGenericTypeDefinition() == openType)
-                     .ToList())
+        foreach (var descriptor in matchedDescriptors)
         {
-            var serviceType = descriptor.ServiceType;
-
-            foreach (var superInterface in BuildSuperInterfaces(serviceType, knownRequestTypes))
+            var superInterfaces = BuildSuperInterfaces(descriptor.ServiceType, knownRequestTypes);
+            foreach (var superInterface in superInterfaces)
             {
-                var newDescriptor = descriptor.ImplementationInstance != null
-                    ? new ServiceDescriptor(superInterface, descriptor.ImplementationInstance)
-                    : descriptor.ImplementationFactory != null
-                        ? new ServiceDescriptor(superInterface, descriptor.ImplementationFactory, descriptor.Lifetime)
-                        : new ServiceDescriptor(superInterface, descriptor.ImplementationType!, descriptor.Lifetime);
-
+                var newDescriptor = RecreateDescriptor(descriptor, superInterface);
                 collection.TryAdd(newDescriptor);
             }
         }
 
         return collection;
+    }
+
+    private static ServiceDescriptor RecreateDescriptor(ServiceDescriptor descriptor, Type superInterface)
+    {
+        return descriptor.ImplementationInstance != null
+            ? new ServiceDescriptor(superInterface, descriptor.ImplementationInstance)
+            : descriptor.ImplementationFactory != null
+                ? new ServiceDescriptor(superInterface, descriptor.ImplementationFactory, descriptor.Lifetime)
+                : new ServiceDescriptor(superInterface, descriptor.ImplementationType!, descriptor.Lifetime);
+    }
+
+    private static bool CheckInterfaceMatch(Type openType, ServiceDescriptor d)
+    {
+        return d.ServiceType.IsInterface
+               && d.ServiceType.IsGenericType
+               && d.ServiceType.GetGenericTypeDefinition() == openType;
+    }
+
+    private static List<TypeInfo> GetDeclaredTypes()
+    {
+        return AppDomain.CurrentDomain.GetAssemblies()
+            .SelectMany(a => a.DefinedTypes)
+            .ToList();
     }
 
     private static IEnumerable<Type> BuildSuperInterfaces(Type serviceType, List<TypeInfo> knownRequestTypes)
@@ -83,6 +88,5 @@ internal static class NediatR
         }
 
         yield return variable;
-
     }
 }

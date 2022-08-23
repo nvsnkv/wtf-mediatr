@@ -21,7 +21,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WtfMediatr.Investigations",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. NediatR", "4. NediatR", "{79D01706-9D6A-41BE-89EE-F979996FE1B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WtfMediatr.NediatR", "WtfMediatr.NediatR\WtfMediatr.NediatR.csproj", "{7E280883-373D-4764-9E4B-DE85C0EDB0F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WtfMediatr.NediatR", "WtfMediatr.NediatR\WtfMediatr.NediatR.csproj", "{7E280883-373D-4764-9E4B-DE85C0EDB0F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. IPipelineBehavior to the rescue!", "5. IPipelineBehavior to the rescue!", "{25FAC7E2-4509-484E-A0F6-3EE25607F530}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WtfMediatr.TheCommonWayToSolveThis", "WtfMediatr.TheCommonWayToSolveThis\WtfMediatr.TheCommonWayToSolveThis.csproj", "{4CF05805-6963-4450-BC0F-8BA0D312596E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Other containers", "6. Other containers", "{242D5D34-41D1-481B-B679-462935D98C76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WtfMediatr.OtherContainers", "WtfMediatr.OtherContainers\WtfMediatr.OtherContainers.csproj", "{992E17A6-071C-463C-9C4E-B397066C00D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +57,14 @@ Global
 		{7E280883-373D-4764-9E4B-DE85C0EDB0F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E280883-373D-4764-9E4B-DE85C0EDB0F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E280883-373D-4764-9E4B-DE85C0EDB0F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CF05805-6963-4450-BC0F-8BA0D312596E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CF05805-6963-4450-BC0F-8BA0D312596E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CF05805-6963-4450-BC0F-8BA0D312596E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CF05805-6963-4450-BC0F-8BA0D312596E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{992E17A6-071C-463C-9C4E-B397066C00D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{992E17A6-071C-463C-9C4E-B397066C00D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{992E17A6-071C-463C-9C4E-B397066C00D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{992E17A6-071C-463C-9C4E-B397066C00D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +75,8 @@ Global
 		{31E512F7-2231-4972-873C-4DA326368FDB} = {FBF590B9-ADE4-4CB2-A4E5-D8C63E733233}
 		{7618EB36-40F7-4292-8AFB-1A3E00DE4066} = {1E973105-CB15-44CE-8DC4-C170FF669139}
 		{7E280883-373D-4764-9E4B-DE85C0EDB0F4} = {79D01706-9D6A-41BE-89EE-F979996FE1B7}
+		{4CF05805-6963-4450-BC0F-8BA0D312596E} = {25FAC7E2-4509-484E-A0F6-3EE25607F530}
+		{992E17A6-071C-463C-9C4E-B397066C00D2} = {242D5D34-41D1-481B-B679-462935D98C76}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {712816E8-8C62-4A6D-9DAF-092A076AC16E}
